@@ -5,7 +5,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.post('/google_forms', function (req, res, next) {
-  res.json({body: req.body});
+  console.log(req.body)
+  res.sendStatus(200);
 });
 
 router.get('/form', function (req, res, next) {
