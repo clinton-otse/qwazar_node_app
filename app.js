@@ -4,7 +4,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const logger = require('morgan');
+// const logger = require('morgan');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
@@ -25,7 +25,7 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(logger('dev'));
+// app.use(logger('dev'));
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
@@ -63,6 +63,7 @@ const authClient = new google.auth.JWT(
 );
 
 const formData = async () => {
+  console.log("sdsvdvsd")
   try {
     // Authorize the client
     const token = await authClient.authorize();
@@ -103,14 +104,15 @@ const formData = async () => {
     }
 
     // Save output data to a Output.json file
-    fs.writeFileSync(
-      'Output.json',
-      JSON.stringify(Output, null, 2),
-      function (err, file) {
-        if (err) throw err;
-        console.log('Saved!');
-      }
-    );
+    // fs.writeFileSync(
+    //   'Output.json',
+    //   JSON.stringify(Output, null, 2),
+    //   function (err, file) {
+    //     if (err) throw err;
+    //     console.log('Saved!');
+    //   }
+    // );
+    console.log()
   } catch (error) {
     console.log(error);
 
@@ -119,7 +121,7 @@ const formData = async () => {
   }
 };
 
-formData();
+// formData();
 
 // --------------------------------------------------------------------------------- //
 

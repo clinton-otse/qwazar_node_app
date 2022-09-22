@@ -4,8 +4,8 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-  res.send('welcome to the api');
+router.post('/google_forms', function (req, res, next) {
+  res.json({body: req.body});
 });
 
 router.get('/form', function (req, res, next) {
